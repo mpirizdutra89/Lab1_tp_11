@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2024 a las 08:32:38
+-- Tiempo de generación: 20-04-2024 a las 09:20:09
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 7.0.10
 
@@ -34,6 +34,22 @@ CREATE TABLE `comentarios` (
   `libros_idlibro` int(11) NOT NULL,
   `comentario` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`idcomentario`, `miembros_idmiembro`, `libros_idlibro`, `comentario`) VALUES
+(1, 1, 1, 'Excelente libro, me mantuvo intrigado de principio a fin.'),
+(2, 2, 2, 'Una obra maestra de la literatura, recomendada para todos.'),
+(3, 3, 3, 'Interesante trama, aunque el final me dejó un poco decepcionado.'),
+(4, 4, 4, 'Me encantó este libro, lo releería una y otra vez.'),
+(5, 5, 5, 'Una historia mágica que cautiva desde la primera página.'),
+(6, 6, 6, 'Don Quijote es un personaje inolvidable, ¡este libro es imprescindible!'),
+(7, 7, 7, 'La narrativa de este libro es simplemente espectacular.'),
+(8, 8, 8, 'Una lectura conmovedora que te hace reflexionar sobre la vida.'),
+(9, 9, 9, 'Me transportó a un mundo de fantasía y aventura, ¡fue genial!'),
+(10, 10, 10, 'Una historia emocionante que te mantiene al borde del asiento hasta el final.');
 
 -- --------------------------------------------------------
 
@@ -178,7 +194,7 @@ ALTER TABLE `prestamos`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `idcomentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcomentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
