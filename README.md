@@ -1,4 +1,4 @@
-<h1> Trapabo obligatorio 11 </h1>
+<h1> Trabajo obligatorio 11 </h1>
 <h3>Enunciado:</h3>
 <p>Diseña un modelo de base de datos para una aplicación de biblioteca. 
 El modelo debe incluir:
