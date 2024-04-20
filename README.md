@@ -24,3 +24,5 @@ Llama a tu tutor a la sala para que valide el modelo que armaron con tu equipo. 
   <li>.doc/diseño y capturas.docx -> Aca esta la captura del diseño de la B.D y ejercicios inventados por mi jajaj . Tiene que eleguir 2 consultas y poner sus captuas (son 8, dos para cada uno)</li>
   
 </ul>
+
+<h4>P/D: colonar el repositorio: y que cada uno solo toque el archivo de word y hacer push. Cuando este listo carlos va a subir el archivo de word</h4>
