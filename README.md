@@ -16,7 +16,8 @@ Diseña las relaciones adecuadas entre las tablas para reflejar
 la relación entre los libros, los miembros, los préstamos y los comentarios, teniendo en cuenta la
 cardinalidad de cada relación.
 Llama a tu tutor a la sala para que valide el modelo que armaron con tu equipo. </p>
-
+<br/>
+<h3>Directorios:</h3>
 <ul>
   <li>.sql/bibliotecatp11.sql -> el script completo con datos</li>
   <li>proyecto_workbench_diseño/tp11.mwb -> el diseño echo mysql workbench </li>
