@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2024 a las 09:20:09
--- Versión del servidor: 5.7.14
--- Versión de PHP: 7.0.10
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 05-05-2024 a las 23:55:04
+-- Versión del servidor: 8.3.0
+-- Versión de PHP: 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,6 +24,11 @@ CREATE DATABASE IF NOT EXISTS `lab1_tp11` DEFAULT CHARACTER SET utf8mb4 COLLATE 
 USE `lab1_tp11`;
 
 -- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
 DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE IF NOT EXISTS `comentarios` (
   `idcomentario` int NOT NULL AUTO_INCREMENT,
@@ -177,4 +183,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
