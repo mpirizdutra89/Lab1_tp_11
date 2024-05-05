@@ -23,33 +23,47 @@ CREATE DATABASE IF NOT EXISTS `lab1_tp11` DEFAULT CHARACTER SET utf8mb4 COLLATE 
 USE `lab1_tp11`;
 
 -- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `comentarios`
---
-
-CREATE TABLE `comentarios` (
-  `idcomentario` int(11) NOT NULL,
-  `miembros_idmiembro` int(11) NOT NULL,
-  `libros_idlibro` int(11) NOT NULL,
-  `comentario` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `comentarios`;
+CREATE TABLE IF NOT EXISTS `comentarios` (
+  `idcomentario` int NOT NULL AUTO_INCREMENT,
+  `miembros_idmiembro` int NOT NULL,
+  `libros_idlibro` int NOT NULL,
+  `comentario` varchar(300) NOT NULL,
+  PRIMARY KEY (`idcomentario`),
+  KEY `fk_comentarios_miembros1_idx` (`miembros_idmiembro`),
+  KEY `fk_comentarios_libros1_idx` (`libros_idlibro`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `comentarios`
 --
 
 INSERT INTO `comentarios` (`idcomentario`, `miembros_idmiembro`, `libros_idlibro`, `comentario`) VALUES
-(1, 1, 1, 'Excelente libro, me mantuvo intrigado de principio a fin.'),
-(2, 2, 2, 'Una obra maestra de la literatura, recomendada para todos.'),
-(3, 3, 3, 'Interesante trama, aunque el final me dejó un poco decepcionado.'),
-(4, 4, 4, 'Me encantó este libro, lo releería una y otra vez.'),
-(5, 2, 5, 'Una historia mágica que cautiva desde la primera página.'),
-(6, 3, 6, 'Don Quijote es un personaje inolvidable, ¡este libro es imprescindible!'),
-(7, 1, 7, 'La narrativa de este libro es simplemente espectacular.'),
-(8, 4, 8, 'Una lectura conmovedora que te hace reflexionar sobre la vida.'),
-(9, 2, 9, 'Me transportó a un mundo de fantasía y aventura, ¡fue genial!'),
-(10, 1, 10, 'Una historia emocionante que te mantiene al borde del asiento hasta el final.');
+(14, 1, 1, 'Excelente libro, me mantuvo intrigado de principio a fin.'),
+(15, 1, 2, 'Una obra maestra de la literatura, recomendada para todos.'),
+(16, 1, 2, 'Interesante trama, aunque el final me dejó un poco decepcionado.'),
+(17, 1, 4, 'Me encantó este libro, lo releería una y otra vez.'),
+(18, 1, 4, 'Una historia mágica que cautiva desde la primera página.'),
+(19, 1, 4, 'Don Quijote es un personaje inolvidable, ¡este libro es imprescindible!'),
+(20, 2, 3, 'La narrativa de este libro es simplemente espectacular.'),
+(21, 2, 3, 'Una lectura conmovedora que te hace reflexionar sobre la vida.'),
+(22, 2, 3, 'Me transportó a un mundo de fantasía y aventura, ¡fue genial!'),
+(23, 2, 4, 'Una historia emocionante que te mantiene al borde del asiento hasta el final.'),
+(24, 2, 4, 'libro aburrido'),
+(25, 3, 2, 'hola mundo'),
+(26, 3, 1, 'La narrativa de este libro es simplemente espectacular.'),
+(27, 3, 1, 'Una lectura conmovedora que te hace reflexionar sobre la vida.'),
+(28, 3, 1, 'Me transportó a un mundo de fantasía y aventura, ¡fue genial!'),
+(29, 3, 3, 'Una historia emocionante que te mantiene al borde del asiento hasta el final.'),
+(30, 3, 3, 'libro aburrido'),
+(31, 3, 2, 'hola mundo'),
+(32, 4, 2, 'hola mundo'),
+(33, 4, 1, 'La narrativa de este libro es simplemente espectacular.'),
+(34, 4, 1, 'Una lectura conmovedora que te hace reflexionar sobre la vida.'),
+(35, 4, 1, 'Me transportó a un mundo de fantasía y aventura, ¡fue genial!'),
+(36, 4, 3, 'Una historia emocionante que te mantiene al borde del asiento hasta el final.'),
+(37, 4, 3, 'libro aburrido'),
+(38, 4, 2, 'hola mundo');
 
 -- --------------------------------------------------------
 
@@ -57,12 +71,14 @@ INSERT INTO `comentarios` (`idcomentario`, `miembros_idmiembro`, `libros_idlibro
 -- Estructura de tabla para la tabla `libros`
 --
 
-CREATE TABLE `libros` (
-  `idlibro` int(11) NOT NULL,
+DROP TABLE IF EXISTS `libros`;
+CREATE TABLE IF NOT EXISTS `libros` (
+  `idlibro` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(50) NOT NULL,
   `autor` varchar(30) NOT NULL,
-  `genero` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `genero` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`idlibro`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `libros`
@@ -91,24 +107,25 @@ INSERT INTO `libros` (`idlibro`, `titulo`, `autor`, `genero`) VALUES
 -- Estructura de tabla para la tabla `miembros`
 --
 
-CREATE TABLE `miembros` (
-  `idmiembro` int(11) NOT NULL,
+DROP TABLE IF EXISTS `miembros`;
+CREATE TABLE IF NOT EXISTS `miembros` (
+  `idmiembro` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) DEFAULT NULL,
   `direccion` varchar(50) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`idmiembro`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `miembros`
 --
 
-INSERT INTO `miembros` (`idmiembro`, `nombre`, `direccion`, `telefono`,email) VALUES
-(1, 'Piriz Martin', 'Abelardo Figuero 149, San Luis', '2664859918','mpirizdutra@ulp.edu.ar'),
-(2, 'Carlos', 'direccion, Ciudad Y', '987-654-3210','carlos@ulp.edu.ar'),
-(3, 'ariel', 'direccion, Ciudad Z', '555-123-4567','ariel@ulp.edu.ar'),
-(4, 'agustin', 'direccion, Ciudad W', '777-888-9999','agustin@ulp.edu.ar');
-
+INSERT INTO `miembros` (`idmiembro`, `nombre`, `direccion`, `telefono`, `email`) VALUES
+(1, 'Piriz Martin', 'Abelardo Figuero 149, San Luis', '2664859918', 'mpirizdutra@ulp.edu.ar'),
+(2, 'Carlos', 'direccion, Ciudad Y', '987-654-3210', 'carlos@ulp.edu.ar'),
+(3, 'ariel', 'direccion, Ciudad Z', '555-123-4567', 'ariel@ulp.edu.ar'),
+(4, 'agustin', 'direccion, Ciudad W', '777-888-9999', 'agustin@ulp.edu.ar');
 
 -- --------------------------------------------------------
 
@@ -116,77 +133,28 @@ INSERT INTO `miembros` (`idmiembro`, `nombre`, `direccion`, `telefono`,email) VA
 -- Estructura de tabla para la tabla `prestamos`
 --
 
-CREATE TABLE `prestamos` (
-  `idprestamo` int(11) NOT NULL,
-  `libros_idlibro` int(11) NOT NULL,
-  `miembros_idmiembro` int(11) NOT NULL,
+DROP TABLE IF EXISTS `prestamos`;
+CREATE TABLE IF NOT EXISTS `prestamos` (
+  `idprestamo` int NOT NULL AUTO_INCREMENT,
+  `libros_idlibro` int NOT NULL,
+  `miembros_idmiembro` int NOT NULL,
   `fecha_prestamo` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_devolucion` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `fecha_devolucion` datetime DEFAULT NULL,
+  PRIMARY KEY (`idprestamo`),
+  KEY `fk_prestamos_libros_idx` (`libros_idlibro`),
+  KEY `fk_prestamos_miembros1_idx` (`miembros_idmiembro`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `prestamos`
 --
 
+INSERT INTO `prestamos` (`idprestamo`, `libros_idlibro`, `miembros_idmiembro`, `fecha_prestamo`, `fecha_devolucion`) VALUES
+(16, 1, 1, '2024-05-05 20:24:02', NULL),
+(17, 2, 2, '2024-05-05 20:24:13', NULL),
+(18, 3, 3, '2024-05-05 20:24:43', '2024-05-07 20:24:15'),
+(19, 4, 4, '2024-05-05 20:24:43', '2024-05-06 20:24:15');
 
-
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`idcomentario`),
-  ADD KEY `fk_comentarios_miembros1_idx` (`miembros_idmiembro`),
-  ADD KEY `fk_comentarios_libros1_idx` (`libros_idlibro`);
-
---
--- Indices de la tabla `libros`
---
-ALTER TABLE `libros`
-  ADD PRIMARY KEY (`idlibro`);
-
---
--- Indices de la tabla `miembros`
---
-ALTER TABLE `miembros`
-  ADD PRIMARY KEY (`idmiembro`);
-
---
--- Indices de la tabla `prestamos`
---
-ALTER TABLE `prestamos`
-  ADD PRIMARY KEY (`idprestamo`),
-  ADD KEY `fk_prestamos_libros_idx` (`libros_idlibro`),
-  ADD KEY `fk_prestamos_miembros1_idx` (`miembros_idmiembro`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  MODIFY `idcomentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT de la tabla `libros`
---
-ALTER TABLE `libros`
-  MODIFY `idlibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT de la tabla `miembros`
---
-ALTER TABLE `miembros`
-  MODIFY `idmiembro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT de la tabla `prestamos`
---
-ALTER TABLE `prestamos`
-  MODIFY `idprestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Restricciones para tablas volcadas
 --
@@ -195,16 +163,18 @@ ALTER TABLE `prestamos`
 -- Filtros para la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  ADD CONSTRAINT `fk_comentarios_libros1` FOREIGN KEY (`libros_idlibro`) REFERENCES `libros` (`idlibro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_comentarios_miembros1` FOREIGN KEY (`miembros_idmiembro`) REFERENCES `miembros` (`idmiembro`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_comentarios_libros1` FOREIGN KEY (`libros_idlibro`) REFERENCES `libros` (`idlibro`),
+  ADD CONSTRAINT `fk_comentarios_miembros1` FOREIGN KEY (`miembros_idmiembro`) REFERENCES `miembros` (`idmiembro`);
 
 --
 -- Filtros para la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  ADD CONSTRAINT `fk_prestamos_libros` FOREIGN KEY (`libros_idlibro`) REFERENCES `libros` (`idlibro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_prestamos_miembros1` FOREIGN KEY (`miembros_idmiembro`) REFERENCES `miembros` (`idmiembro`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_prestamos_libros` FOREIGN KEY (`libros_idlibro`) REFERENCES `libros` (`idlibro`),
+  ADD CONSTRAINT `fk_prestamos_miembros1` FOREIGN KEY (`miembros_idmiembro`) REFERENCES `miembros` (`idmiembro`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
