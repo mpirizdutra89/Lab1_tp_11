@@ -44,12 +44,12 @@ INSERT INTO `comentarios` (`idcomentario`, `miembros_idmiembro`, `libros_idlibro
 (2, 2, 2, 'Una obra maestra de la literatura, recomendada para todos.'),
 (3, 3, 3, 'Interesante trama, aunque el final me dejó un poco decepcionado.'),
 (4, 4, 4, 'Me encantó este libro, lo releería una y otra vez.'),
-(5, 5, 5, 'Una historia mágica que cautiva desde la primera página.'),
-(6, 6, 6, 'Don Quijote es un personaje inolvidable, ¡este libro es imprescindible!'),
-(7, 7, 7, 'La narrativa de este libro es simplemente espectacular.'),
-(8, 8, 8, 'Una lectura conmovedora que te hace reflexionar sobre la vida.'),
-(9, 9, 9, 'Me transportó a un mundo de fantasía y aventura, ¡fue genial!'),
-(10, 10, 10, 'Una historia emocionante que te mantiene al borde del asiento hasta el final.');
+(5, 2, 5, 'Una historia mágica que cautiva desde la primera página.'),
+(6, 3, 6, 'Don Quijote es un personaje inolvidable, ¡este libro es imprescindible!'),
+(7, 1, 7, 'La narrativa de este libro es simplemente espectacular.'),
+(8, 4, 8, 'Una lectura conmovedora que te hace reflexionar sobre la vida.'),
+(9, 2, 9, 'Me transportó a un mundo de fantasía y aventura, ¡fue genial!'),
+(10, 1, 10, 'Una historia emocionante que te mantiene al borde del asiento hasta el final.');
 
 -- --------------------------------------------------------
 
@@ -69,10 +69,10 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`idlibro`, `titulo`, `autor`, `genero`) VALUES
-(1, 'El código Da Vinci', 'Dan Brown', 'Misterio'),
-(2, 'Cien años de soledad', 'Gabriel García Márquez', 'Realismo mágico'),
-(3, '1984', 'George Orwell', 'Ciencia ficción'),
-(4, 'Orgullo y prejuicio', 'Jane Austen', 'Clásico'),
+(1, 'El señor de los anillos', 'J. R. R. Tolkien', 'fantasía'),
+(2, 'Harry Potter: la piedra filosofal.', 'J. K. Rowling', 'fantasía'),
+(3, 'La caída de la casa Usher', 'Edgar Allan Poe', 'terror literario'),
+(4, 'Un amor de otra época', 'Adam West', 'Novela Rosa'),
 (5, 'Harry Potter y la piedra filosofal', 'J.K. Rowling', 'Fantasía'),
 (6, 'Don Quijote de la Mancha', 'Miguel de Cervantes', 'Clásico'),
 (7, 'La sombra del viento', 'Carlos Ruiz Zafón', 'Misterio'),
@@ -95,29 +95,20 @@ CREATE TABLE `miembros` (
   `idmiembro` int(11) NOT NULL,
   `nombre` varchar(30) DEFAULT NULL,
   `direccion` varchar(50) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL
+  `telefono` varchar(20) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `miembros`
 --
 
-INSERT INTO `miembros` (`idmiembro`, `nombre`, `direccion`, `telefono`) VALUES
-(1, 'Ana García', 'Calle 123, Ciudad X', '123-456-7890'),
-(2, 'Juan Pérez', 'Avenida Principal, Ciudad Y', '987-654-3210'),
-(3, 'María López', 'Plaza Central, Ciudad Z', '555-123-4567'),
-(4, 'Pedro Martínez', 'Calle Mayor, Ciudad W', '777-888-9999'),
-(5, 'Laura Rodríguez', 'Avenida Norte, Ciudad V', '111-222-3333'),
-(6, 'Carlos Sánchez', 'Calle Sur, Ciudad U', '444-555-6666'),
-(7, 'Sofía Fernández', 'Avenida Este, Ciudad T', '666-777-8888'),
-(8, 'Luis Hernández', 'Calle Oeste, Ciudad S', '999-000-1111'),
-(9, 'Lucía Gómez', 'Plaza Este, Ciudad R', '222-333-4444'),
-(10, 'Javier Ruiz', 'Avenida Oeste, Ciudad Q', '888-999-0000'),
-(11, 'Elena Díaz', 'Calle Este, Ciudad P', '333-444-5555'),
-(12, 'Diego Torres', 'Plaza Norte, Ciudad O', '000-111-2222'),
-(13, 'Marta Vargas', 'Calle Sur, Ciudad N', '777-888-9999'),
-(14, 'Pablo Romero', 'Avenida Principal, Ciudad M', '111-222-3333'),
-(15, 'Andrea Martín', 'Calle 123, Ciudad L', '444-555-6666');
+INSERT INTO `miembros` (`idmiembro`, `nombre`, `direccion`, `telefono`,email) VALUES
+(1, 'Piriz Martin', 'Abelardo Figuero 149, San Luis', '2664859918','mpirizdutra@ulp.edu.ar'),
+(2, 'Carlos', 'direccion, Ciudad Y', '987-654-3210','carlos@ulp.edu.ar'),
+(3, 'ariel', 'direccion, Ciudad Z', '555-123-4567','ariel@ulp.edu.ar'),
+(4, 'agustin', 'direccion, Ciudad W', '777-888-9999','agustin@ulp.edu.ar');
+
 
 -- --------------------------------------------------------
 
@@ -137,22 +128,8 @@ CREATE TABLE `prestamos` (
 -- Volcado de datos para la tabla `prestamos`
 --
 
-INSERT INTO `prestamos` (`idprestamo`, `libros_idlibro`, `miembros_idmiembro`, `fecha_prestamo`, `fecha_devolucion`) VALUES
-(1, 1, 1, '2024-04-20 00:00:00', NULL),
-(2, 2, 2, '2024-04-20 00:00:00', '2024-04-27 00:00:00'),
-(3, 3, 3, '2024-04-20 00:00:00', NULL),
-(4, 4, 4, '2024-04-20 00:00:00', '2024-04-27 00:00:00'),
-(5, 5, 5, '2024-04-20 00:00:00', NULL),
-(6, 6, 6, '2024-04-20 00:00:00', '2024-04-27 00:00:00'),
-(7, 7, 7, '2024-04-20 00:00:00', NULL),
-(8, 8, 8, '2024-04-20 00:00:00', '2024-04-27 00:00:00'),
-(9, 9, 9, '2024-04-20 00:00:00', NULL),
-(10, 10, 10, '2024-04-20 00:00:00', '2024-04-27 00:00:00'),
-(11, 11, 11, '2024-04-20 00:00:00', NULL),
-(12, 12, 12, '2024-04-20 00:00:00', '2024-04-27 00:00:00'),
-(13, 13, 13, '2024-04-20 00:00:00', NULL),
-(14, 14, 14, '2024-04-20 00:00:00', '2024-04-27 00:00:00'),
-(15, 15, 15, '2024-04-20 00:00:00', NULL);
+
+
 
 --
 -- Índices para tablas volcadas
