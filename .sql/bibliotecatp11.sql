@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   PRIMARY KEY (`idcomentario`),
   KEY `fk_comentarios_miembros1_idx` (`miembros_idmiembro`),
   KEY `fk_comentarios_libros1_idx` (`libros_idlibro`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `comentarios`
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `libros` (
   `autor` varchar(30) NOT NULL,
   `genero` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`idlibro`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `libros`
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `miembros` (
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idmiembro`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `miembros`
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `prestamos` (
   PRIMARY KEY (`idprestamo`),
   KEY `fk_prestamos_libros_idx` (`libros_idlibro`),
   KEY `fk_prestamos_miembros1_idx` (`miembros_idmiembro`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `prestamos`
